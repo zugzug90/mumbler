@@ -38,10 +38,6 @@ cyrrilic_transliteration_table['э'] = 'a'
 cyrrilic_transliteration_table['ю'] = 'u'
 cyrrilic_transliteration_table['я'] = 'i'
 
---{абвгдеёжзийклмнопрстуфхшщцыъъэюя}
--- Abvgdieiozhziyklmnoprstufkhshschtsy''eiuia
-
-
 local function transliterate_to_latin_char(char) 
 	for k, v in pairs(cyrrilic_transliteration_table) do
 		if char == k then 
@@ -77,7 +73,6 @@ function M.play_voice_line(text, sound_url, props)
 			c = string.utf8sub(text, i, i)
 			--print('           - Char code:', string.byte(string.lower(c)), 'corresponds to:', cyrrilic_transliteration_table[string.byte(string.lower(c))])
 			local latin_char = cyrrilic_transliteration_table[(string.lower(c))] or string.lower(c)
-			print('Latin char: ', latin_char, '(' .. string.byte(string.lower(c)) .. ')')
 			local char_code = string.byte(latin_char)
 			local v = (char_code % 26) / 26.0
 
