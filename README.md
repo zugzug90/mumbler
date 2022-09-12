@@ -1,5 +1,0 @@
-# Mumbler Project
-
-TBD
-
----
